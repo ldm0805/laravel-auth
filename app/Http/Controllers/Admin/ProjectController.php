@@ -42,11 +42,12 @@ class ProjectController extends Controller
         $form_data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $form_data['slug'] = $slug;
-        $newProj = new Project();
-        $newProj->fill($form_data);
-        $newProj->save();
-
-        // $newProj = Proj::create($form_data);
+        //Vecchio
+        // $newProj = new Project();
+        // $newProj->fill($form_data);
+        // $newProj->save();
+        //Nuovo
+        $newProj = Project::create($form_data);
 
         return redirect()->route('admin.projects.index')->with('message', 'Post creato correttamente');
     }
