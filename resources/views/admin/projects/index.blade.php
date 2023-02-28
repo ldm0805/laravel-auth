@@ -1,5 +1,11 @@
 @extends('layouts.admin')
 @section('content')
+<div>
+    <h1>Elenco posts</h1>
+</div>
+<div>
+    <a href="{{route('admin.projects.create')}}" class="btn btn-success">Add new</a>
+</div>
 <div id="index">
     @foreach($projects as $project)
         <section class="card">
