@@ -26,7 +26,14 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => ['required', 'unique:projects', 'max:150'],
             'content' => ['nullable'],
-            'date_project' => ['nullable']
+            'date_project' => ['nullable','date_format:Y-m-d'],
+        ];
+    }
+    public function messages(){
+        return[
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.max' => 'Il titolo può essere lungo al massimo :max caratteri.',
+            'date_project.date_format' => 'La data inserita non è nel formato corretto',
         ];
     }
 }

@@ -13,12 +13,18 @@
                     Titolo
                 </label>
                 <input type="text" class="form-control" placeholder="Titolo" id="title" name ="title">
+                    @error('title')
+                    <div class="alert alert-danger mt-2">{{$message}}</div>
+                    @enderror
             </div>
             <div class="form-group mb-3">
                 <label class="control-label mb-2">
                     Data
                 </label>
                 <input type="date" class="form-control" placeholder="Data" name="date_project">
+                    @error('date_project')
+                        <div class="alert alert-danger mt-2">{{$message}}</div>
+                    @enderror
             </div>
             <div class="form-group mb-3">
                 <label class="control-label mb-2">
