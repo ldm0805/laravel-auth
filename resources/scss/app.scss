@@ -1,1 +1,8 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+@import "~resources/scss/index.scss";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
