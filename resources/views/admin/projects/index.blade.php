@@ -31,6 +31,7 @@
             </article>
             <article class="containerDescriptionCard">
                 <p class="titleCard">{{$project->id}}. {{$project->title}}</p>
+                <p class="titleCard">{{$project->date_project}}</p>
                 <p class="tecnologiesCard">{{$project->slug}}</p>
                 <p class="descriptionCard">{{$project->content}}</p>
             </article>

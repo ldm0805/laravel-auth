@@ -16,6 +16,12 @@
             </div>
             <div class="form-group mb-3">
                 <label class="control-label mb-2">
+                    Data
+                </label>
+                <input type="date" class="form-control" placeholder="Data" name="date_project">
+            </div>
+            <div class="form-group mb-3">
+                <label class="control-label mb-2">
                     Contenuto
                 </label>
                 <textarea type="text-area" class="form-control" placeholder="Contenuto" id="content" name ="content"></textarea>
