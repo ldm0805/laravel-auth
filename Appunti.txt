@@ -26,4 +26,25 @@
 
 - Modifichiamo il projectseeder con i dati che vogliamo inviare
 - Lanciamo il seeder
-- 
+
+
+
+
+
+- La validazione non si fa più nel controller, l'array con le validazioni si fa nello StoreProjectRequest.php e poi lo si usa nello store:
+
+StoreProjectRequest.php
+public function rules()
+{
+    return [
+        'title' => ['required', 'unique:projects', 'max:150'],
+        'content' => ['nullable'],
+
+    ];
+}
+
+metodo  store
+public function store(StoreProjectRequest $request)
+{
+    $form_data = $reqyest->validated();
+}
