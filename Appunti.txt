@@ -7,10 +7,21 @@
     public function index(){
     return view('admin.dashboard');
         }
+
+- Creiamo una cartella admin nella cartella views e ci inseriamo dashboard.blade.php
+
 -    Modifichiamo la rotta nel file .web con il nuovo controller: (Recupero tutti i dati per l'utente verificato)
      Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
          Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
      });
 - Modifico in Providers/RouteServiceProviders:
      da dashboard in admin
-- 
+- Creiamo il file admin.blade.php
+
+- Creiamo il model con il comando : php artisan make:model Post -rcms --requests
+    Lo spostiamo dentro Admin e gli cambiamo il namespace in
+    namespace App\Http\Controllers\Admin;
+
+- Installiamo Faker
+
+- Modifichiamo il projectseeder
