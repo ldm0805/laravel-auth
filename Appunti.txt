@@ -1,0 +1,12 @@
+
+
+- Lanciare la migrations php artisan migrate
+- Creiamo un controller con il comando : 
+    php artisan make:controller Admin/DashboardController (La scritta Admin crea una cartella con dentro il controller).
+-    Inseriamo questa funzione che riporta alla dashboard
+    public function index(){
+    return view('admin.dashboard');
+        }
+-    Modifichiamo la rotta nel file .web con il nuovo controller:
+     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
