@@ -24,4 +24,6 @@
 
 - Installiamo Faker
 
-- Modifichiamo il projectseeder
+- Modifichiamo il projectseeder con i dati che vogliamo inviare
+- Lanciamo il seeder
+- 
