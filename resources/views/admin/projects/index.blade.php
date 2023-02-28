@@ -12,6 +12,13 @@
         </div>
         @endif
     </div>
+    <div class="mt-3">
+        @if(session('messagedelete'))
+        <div class="alert alert-danger">
+            {{session('messagedelete')}}
+        </div>
+        @endif
+    </div>
 </div>
 <div id="index">
     @foreach($projects as $project)
