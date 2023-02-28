@@ -5,7 +5,7 @@
 </div>
 <div>
     <a href="{{route('admin.projects.create')}}" class="btn btn-success">Add new</a>
-    <div>
+    <div class="mt-3">
         @if(session('message'))
         <div class="alert alert-success">
             {{session('message')}}
@@ -23,6 +23,11 @@
                 <p class="titleCard">{{$project->id}}. {{$project->title}}</p>
                 <p class="tecnologiesCard">{{$project->slug}}</p>
                 <p class="descriptionCard">{{$project->content}}</p>
+                <form action="{{route('admin.projects.destroy', ['project' => $project['slug']] )}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <input class="btn btn-danger" type="submit" value="Cancella post">
+                  </form>
             </article>
         </section>
     @endforeach
