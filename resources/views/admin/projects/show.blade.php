@@ -1,11 +1,13 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="container-fluid show">
+    <div class="show">
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-between">
                     <h2>Dettaglio Project: {{$project->title}}</h2>
-                    <a href="{{route('admin.projects.index')}}" class="btn btn-sm btn-primary">Torna all'elenco</a>
+                    <a href="{{route('admin.projects.index')}}" class="btnblue">
+                        Torna all'elenco
+                    </a>
                 </div>
             </div>
             <div class="col-12">
