@@ -17,7 +17,7 @@
     </div>
 </div>
 <div id="index">
-    @foreach($projects as $project)
+    @forelse($projects as $project)
         <section class="card">
             <article class="containerImagenCard">
                 <img src="https://cdn.pixabay.com/photo/2018/02/07/14/27/pension-3137209_640.jpg" alt="">
@@ -40,7 +40,11 @@
                 </form>
             </div>
             </section>
-    @endforeach
+            @empty
+            <div class="text-danger">
+                <h4>Il database dei tuoi project è vuoto, clicca sul pulsante "Aggiungi Project" per aggiungerli.</h4>
+            </div>
+    @endforelse
 </div>
 @include ('admin.partials.modals')
 @endsection
