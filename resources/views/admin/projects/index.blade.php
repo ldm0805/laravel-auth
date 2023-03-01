@@ -41,9 +41,16 @@
             </div>
             </section>
             @empty
-            <div class="text-danger">
-                <h4>Il database dei tuoi project è vuoto, clicca sul pulsante "Aggiungi Project" per aggiungerli.</h4>
-            </div>
+            <div class="container">
+                <div class="row justify-content-center mt-5">
+                  <div class="col-lg-8 col-md-10 col-sm-12">
+                    <div class="alert alert-danger text-center" role="alert">
+                      <h4 class="alert-heading mb-4">Il database dei tuoi project è vuoto</h4>
+                      <p class="lead">Clicca sul pulsante "Aggiungi Project" per aggiungerli.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
     @endforelse
 </div>
 @include ('admin.partials.modals')
