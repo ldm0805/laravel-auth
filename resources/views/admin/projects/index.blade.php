@@ -31,10 +31,10 @@
                 <a class="btn btn-sm btn-square btn-warning" href="{{route('admin.projects.edit', $project->slug)}}" title="Modifica project"><i class="fas fa-edit"></i></a>
             </article>
             <div class="d-flex justify-content-end m-3">
-                <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
+                <form class="d-inline-block" action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger bnt-sm btn-square" type="submit" value="Cancella project">
+                    <button class="btn btn-danger bnt-sm btn-square footer-button confirm-delete-button" type="submit" value="Cancella project">
                         <i class="fas fa-trash"></i>
                     </button>
                 </form>
@@ -42,4 +42,5 @@
             </section>
     @endforeach
 </div>
+@include ('admin.partials.modals')
 @endsection
