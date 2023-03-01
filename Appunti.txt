@@ -1,7 +1,53 @@
+Inizializzazione progetto
+- composer create-project laravel/laravel:^9.2  nome_progetto
+- composer require laravel/breeze --dev
+- php artisan breeze: install
+    Scegliere Blade (num 0)
+- composer require pacificdev/laravel_9_preset
+- php artisan preset:ui bootstrap --auth
+- package.json → cambio “development” da “mix” a “vite” (con laravel 9.2 teoricamente non serve)
+- resources / js / bootstrap.js → tutte le righe devono essere commentate
+- npm i
+- npm run dev
+Dopo aver inizializzato il progetto:
+- Creare un db su mysql e collegarlo nel file .env
+- Lanciare la migrations php artisan migrate 
+    Eseguiamo una prima migrazione della tabella degli utenti creata in automatico nel progetto.
 
+    DEFINIZIONE DEL PROGETTO NELLE SUE COMPONENTI E PARTI
+    - creazione Migration con il comando php artisan make:migration nome_della_migration (create_houses_table oppure update_houses_table --table=houses)
+    - Modifico la struttura della tabella :
+        Esempio:
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id();
+            $table->string('title', 150)->unique();
+            $table->text('content')->nullable();
+            $table->string('slug');
+            $table->timestamps();
+        });
+    - Lancio il comando php artisan migrate per creare la tabella nel db
+    - Creare il model con il comando php artisan make:model NomeModelloAlSingolare -rcms --requests
+    - php artisan make:seeder NomeDelSeeder
+    - Se serve il faker:
+        Lanciamo il comando composer remove fzaninotto/faker 
+        Lanciamo il comando composer require fakerphp/faker --dev
+        Editiamo il metodo rum del seeder ed importiamo al suo interno la classe Faker
+        oppure
+        Inviamo i nostri dati
+    - lanciamo il seeder con il comando php artisan db:seed --class=NomeDelSeeder
+    - Lanciamo il comando per creare il controller: php artisan make:controller NomeController oppure se vogliamo le risorse php artisan make:controller --resource NomeController
 
-- Lanciare la migrations php artisan migrate
+- Modifichiamo la rotta nel file .web con il nuovo controller: (Recupero tutti i dati per l'utente verificato)
+    Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    });
+
+- Modifico in Providers/RouteServiceProviders:
+    da dashboard in admin
+- Creiamo il file admin.blade.php
+
 - Creiamo un controller con il comando : 
+
     php artisan make:controller Admin/DashboardController (La scritta Admin crea una cartella con dentro il controller).
 -    Inseriamo questa funzione che riporta alla dashboard
     public function index(){
@@ -10,13 +56,7 @@
 
 - Creiamo una cartella admin nella cartella views e ci inseriamo dashboard.blade.php
 
--    Modifichiamo la rotta nel file .web con il nuovo controller: (Recupero tutti i dati per l'utente verificato)
-     Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
-         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-     });
-- Modifico in Providers/RouteServiceProviders:
-     da dashboard in admin
-- Creiamo il file admin.blade.php
+
 
 - Creiamo il model con il comando : php artisan make:model Post -rcms --requests
     Lo spostiamo dentro Admin e gli cambiamo il namespace in
