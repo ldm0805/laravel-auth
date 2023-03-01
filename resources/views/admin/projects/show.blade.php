@@ -3,11 +3,13 @@
     <div class="show">
         <div class="row">
             <div class="col-12">
-                <div class="d-flex justify-content-between">
-                    <h2>Dettaglio Project: {{$project->title}}</h2>
+                <div class="mb-4">
                     <a href="{{route('admin.projects.index')}}" class="btnblue">
                         Torna all'elenco
                     </a>
+                </div>
+                <div class="d-flex justify-content-center gap-2">
+                    <h4>{{$project->title}}</h4>
                 </div>
             </div>
             <div class="col-12">
