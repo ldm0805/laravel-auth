@@ -5,6 +5,10 @@ a.btnblue {
     padding: 1em;
     text-decoration: none;
     border-radius: .5em;
+
+    &:hover {
+        background-color: #0004d3;
+    }
 }
 
 div#index {
