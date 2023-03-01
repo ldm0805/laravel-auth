@@ -34,7 +34,9 @@
                 <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <input class="btn btn-danger" type="submit" value="Cancella project">
+                    <button class="btn btn-danger bnt-sm btn-square" type="submit" value="Cancella project">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </form>
             </div>
             </section>

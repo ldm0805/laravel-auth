@@ -118,6 +118,5 @@ class ProjectController extends Controller
 
         // Reindirizzamento all'index con messaggio di conferma eliminazione
         return redirect()->route('admin.projects.index')->with('message', 'La cancellazione del project '.$project->title.' è andata a buon fine.');
-
     }
 }
