@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule; //Obbligatorio per usare rule
 
 class UpdateProjectRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,22 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+                'title' => ['required', Rule::unique('projects')->ignore($this->project), 'max:150'],
+                'content' => ['nullable'],
+                'date_project' => ['nullable','date_format:Y-m-d'],
+        ];
+    }
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, mixed>
+     */
+    public function messages(){
+        return[
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.unique' => 'Il project con questo titolo è già presente nella pagina',
+            'title.max' => 'Il titolo può essere lungo al massimo :max caratteri.',
+            'date_project.date_format' => 'La data inserita non è nel formato corretto',
         ];
     }
 }

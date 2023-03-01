@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center m-4">
-            <h2>Aggiungi nuovo project</h2>
+            <h2>Modifica questo project</h2>
         </div>
         <div class="col-12">
             <form action="{{route('admin.projects.update', $project->slug)}}" method="POST">

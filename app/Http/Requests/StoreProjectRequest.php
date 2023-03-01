@@ -37,7 +37,7 @@ class StoreProjectRequest extends FormRequest
     public function messages(){
         return[
             'title.required' => 'Il titolo è obbligatorio',
-            'title.unique' => 'Il peoject con questo titolo è già presente nella pagina',
+            'title.unique' => 'Il project con questo titolo è già presente nella pagina',
             'title.max' => 'Il titolo può essere lungo al massimo :max caratteri.',
             'date_project.date_format' => 'La data inserita non è nel formato corretto',
         ];

@@ -46,7 +46,7 @@ class ProjectController extends Controller
         $form_data = $request->validated();
     
         // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
-        $slug = Project::generateSlug($request->title);
+        $slug = Project::generateSlug($request->title, '-');
     
         // Lo slug viene aggiunto ai dati del form
         $form_data['slug'] = $slug;
@@ -55,7 +55,7 @@ class ProjectController extends Controller
         $newProj = Project::create($form_data);
     
         // Reindirizzamento all'index con messaggio di conferma crezione
-        return redirect()->route('admin.projects.index')->with('message', 'Project creato correttamente');
+        return redirect()->route('admin.projects.index')->with('message', 'Il project creato correttamente');
     }
     
 
@@ -91,7 +91,18 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+       // Ottengo i dati validati dalla richiesta
+       $form_data = $request->validated();
+    
+       // Genero uno slug tramite una funzione (project.php) dal titolo del progetto
+       $slug = Project::generateSlug($request->title, '-');
+   
+       // Lo slug viene aggiunto ai dati del form
+       $form_data['slug'] = $slug;
+   
+       $project->update($form_data);
+       
+       return redirect()->route('admin.projects.index')->with('message', 'La modifica del project '.$project->title.' è andata a buon fine.');
     }
 
     /**
@@ -106,7 +117,7 @@ class ProjectController extends Controller
         $project->delete();
 
         // Reindirizzamento all'index con messaggio di conferma eliminazione
-        return redirect()->route('admin.projects.index')->with('messagedelete', 'Project eliminato correttamente');
+        return redirect()->route('admin.projects.index')->with('message', 'La cancellazione del project '.$project->title.' è andata a buon fine.');
 
     }
 }
