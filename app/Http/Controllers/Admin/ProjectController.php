@@ -55,7 +55,7 @@ class ProjectController extends Controller
         $newProj = Project::create($form_data);
     
         // Reindirizzamento all'index con messaggio di conferma crezione
-        return redirect()->route('admin.projects.index')->with('message', 'Il project creato correttamente');
+        return redirect()->route('admin.projects.index')->with('message', 'Il project è stato creato correttamente');
     }
     
 

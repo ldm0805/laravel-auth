@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center m-4">
-            <h2>Modifica questo project</h2>
+            <h2 class="text-white">Modifica questo project</h2>
         </div>
         <div class="col-12">
             <form action="{{route('admin.projects.update', $project->slug)}}" method="POST">
@@ -34,7 +34,7 @@
                 <textarea type="text-area" class="form-control" placeholder="Contenuto" id="content" name ="content">{{old('content') ?? $project->content}}</textarea>
             </div>
             <div class="form-group mb-3">
-                <button type="submit" class="btn btn-sm btn-success">Salva</button>
+                <button type="submit" class="btnblue">Salva</button>
             </div>
             </form>
         </div>
