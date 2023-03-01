@@ -29,9 +29,15 @@ class StoreProjectRequest extends FormRequest
             'date_project' => ['nullable','date_format:Y-m-d'],
         ];
     }
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, mixed>
+     */
     public function messages(){
         return[
             'title.required' => 'Il titolo è obbligatorio',
+            'title.unique' => 'Il peoject con questo titolo è già presente nella pagina',
             'title.max' => 'Il titolo può essere lungo al massimo :max caratteri.',
             'date_project.date_format' => 'La data inserita non è nel formato corretto',
         ];

@@ -34,13 +34,14 @@
                 <p class="titleCard">{{$project->date_project}}</p>
                 <p class="tecnologiesCard">{{$project->slug}}</p>
                 <p class="descriptionCard">{{$project->content}}</p>
-                <a class="btn btn-sm btn-square btn-primary" href="{{route('admin.projects.show', $project->slug)}}" title="visualizza post"><i class="fas fa-eye"></i></a>
+                <a class="btn btn-sm btn-square btn-primary" href="{{route('admin.projects.show', $project->slug)}}" title="Visualizza project"><i class="fas fa-eye"></i></a>
+                <a class="btn btn-sm btn-square btn-warning" href="{{route('admin.projects.edit', $project->slug)}}" title="Modifica project"><i class="fas fa-edit"></i></a>
             </article>
             <div class="d-flex justify-content-end m-3">
                 <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <input class="btn btn-danger" type="submit" value="Cancella post">
+                    <input class="btn btn-danger" type="submit" value="Cancella project">
                 </form>
             </div>
             </section>
