@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container">
+<div class="container edit">
     <div class="row">
         <div class="col-12 text-center m-4">
             <h2 class="text-white">Modifica questo project</h2>

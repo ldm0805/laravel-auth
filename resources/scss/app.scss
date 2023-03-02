@@ -9,8 +9,12 @@
     font-family: 'Roboto', sans-serif;
 }
 
-label {
-    color: white;
+.edit,
+.create {
+    label {
+        color: white;
+
+    }
 }
 
 div.show {
@@ -20,4 +24,8 @@ div.show {
 
 div.modal {
     color: white;
+}
+
+div#app {
+    color: black;
 }
