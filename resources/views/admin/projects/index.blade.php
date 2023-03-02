@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@inject('utils', 'App\Utils\Utils')
 @section('content')
 <div class="container-fluid">
     <div class="text-center text-white mt-4">
@@ -26,7 +27,7 @@
             <article class="containerDescriptionCard">
                 <p class="titleCard">Progetto:</p>
                 <p class="titleCard">{{$project->title}}</p>
-                <p class="tecnologiesCard">Data: {{$project->date_project}}</p>
+                <p class="tecnologiesCard">Data: {{ $utils->changeDate($project->date_project) }}</p>
                 <p class="tecnologiesCard">{{$project->slug}}</p>
                 <p class="descriptionCard">Contenuto: {{$project->content}}</p>
                 <a class="btn btn-sm btn-square btn-primary" href="{{route('admin.projects.show', $project->slug)}}" title="Visualizza project"><i class="fas fa-eye"></i></a>
@@ -36,7 +37,7 @@
                 <form class="d-inline-block" action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger bnt-sm btn-square footer-button confirm-delete-button" type="submit" title="Cancella project">
+                    <button class="btn btn-danger bnt-sm btn-square confirm-delete-button" type="submit" title="Cancella project">
                         <i class="fas fa-trash"></i>
                     </button>
                 </form>
